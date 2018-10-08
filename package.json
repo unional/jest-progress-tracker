@@ -1,0 +1,50 @@
+{
+  "name": "jest-progress-reporter",
+  "description": "Keep track of test progress over time",
+  "version": "0.0.0-development",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.base.json",
+    "clean": "rimraf dist",
+    "codecov": "codecov",
+    "coverage": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "tsc && jest",
+    "verify": "npm run lint && npm run build && npm run coverage && npm run dependency-check",
+    "watch": "node scripts/watch.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unional/jest-progress-reporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unional/jest-progress-reporter/issues"
+  },
+  "homepage": "https://github.com/unional/jest-progress-reporter",
+  "keywords": [
+    "jest",
+    "reporters"
+  ],
+  "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/node": "^10.11.4",
+    "assertron": "^5.1.4",
+    "dependency-check": "^3.2.1",
+    "eslint": "^5.6.1",
+    "eslint-plugin-unional": "^1.0.0",
+    "jest": "^23.6.0",
+    "satisfier": "^4.5.0",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-config-unional": "^0.9.6",
+    "typescript": "^3.1.1"
+  }
+}
