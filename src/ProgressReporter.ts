@@ -1,18 +1,12 @@
-export interface RuntimeOptions { }
-export interface Options { }
+import fs from 'fs';
+import { appendTestResults } from './appendTestResults';
+import { RESULT_FILEPATH } from './constants';
+import { transformTestResults } from './transformTestResults';
 
-export class ProgressReporter {
-  options: RuntimeOptions
-  constructor(public globalConfig: jest.GlobalConfig, jestOptions: Partial<Options>) {
-    console.info('globalConfig', globalConfig)
-    console.info('jestOptions', jestOptions)
-  }
-  onRunStart(results: jest.AggregatedResult, options: jest.ReporterOnStartOptions) {
-    console.info('results', results)
-    console.info('options', options)
-  }
-  onRunComplete(context, results: jest.AggregatedResult) {
-    console.info('context', context)
-    console.info('results', results)
+export class ProgressReporter implements jest.Reporter {
+  appendTestResult = appendTestResults
+  onRunComplete(_context: any, results: jest.AggregatedResult) {
+    const entry = transformTestResults(results)
+    this.appendTestResult({ fs }, RESULT_FILEPATH, entry)
   }
 }

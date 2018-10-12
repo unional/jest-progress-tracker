@@ -1,4 +1,4 @@
-# jest-progress-reporter
+# @unional/jest-progress-reporter
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
@@ -9,7 +9,7 @@
 [![Greenkeeper badge][green-keeper-image]][green-keeper-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
 
-Audio reporter for [`jest`](https://jestjs.io/)
+Progress tracker.
 
 ## Usage
 
