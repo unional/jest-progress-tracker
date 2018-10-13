@@ -1,12 +1,22 @@
-import fs from 'fs';
-import { appendTestResults } from './appendTestResults';
-import { RESULT_FILEPATH } from './constants';
+import { append, init } from '@unional/test-progress-tracker';
 import { transformTestResults } from './transformTestResults';
 
+init()
+
 export class ProgressReporter implements jest.Reporter {
-  appendTestResult = appendTestResults
-  onRunComplete(_context: any, results: jest.AggregatedResult) {
+  appendTestResult = append
+  filtered: boolean
+  constructor(config: Pick<jest.GlobalConfig, 'testNamePattern' | 'testPathPattern'>) {
+    this.filtered = !!(config.testNamePattern || config.testPathPattern)
+  }
+
+  onRunComplete(_: any, results: jest.AggregatedResult) {
     const entry = transformTestResults(results)
-    this.appendTestResult({ fs }, RESULT_FILEPATH, entry)
+    if (entry) {
+      if (this.filtered) {
+        entry.filtered = true
+      }
+      this.appendTestResult(undefined, entry)
+    }
   }
 }

@@ -12,10 +12,13 @@ test('no coverage is ok', () => {
   a.satisfy(transformTestResults(testResults), testResults)
 })
 
-test.skip('skip test will...', () => { })
+test('skipped test run will be undefined', () => {
+  expect(transformTestResults(createTestResults({ numTotalTests: 0 }))).toBeUndefined()
+})
 
 test('coverage', () => {
   const testResults = createTestResults({
+    numTotalTests: 1,
     coverageMap: {
       getCoverageSummary: () => ({
         branches: { covered: 0, skipped: 0, total: 0 },
@@ -36,12 +39,12 @@ test('coverage', () => {
   })
 })
 test('record duration', () => {
-  a.satisfy(transformTestResults(createTestResults({ startTime: new Date().getTime() - 100 })), { duration: isInRange(100, 101) })
+  a.satisfy(transformTestResults(createTestResults({ numTotalTests: 1, startTime: new Date().getTime() - 100 })), { duration: isInRange(100, 101) })
 })
 
 test('has start time', () => {
   const startTime = new Date().getTime()
-  a.satisfy(transformTestResults(createTestResults({ startTime })), { startTime })
+  a.satisfy(transformTestResults(createTestResults({ numTotalTests: 1, startTime })), { startTime })
 })
 
 function createTestResults(partial: Partial<jest.AggregatedResult>) {

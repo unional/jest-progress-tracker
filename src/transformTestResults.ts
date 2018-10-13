@@ -1,14 +1,4 @@
-export interface TestResults {
-  startTime: number;
-  duration: number;
-  numFailedTests: number;
-  numFailedTestSuites: number;
-  numPassedTests: number;
-  numPassedTestSuites: number;
-  numTotalTests: number;
-  numTotalTestSuites: number;
-  coverage?: jest.CoverageSummary
-}
+import { CoverageSummary, TestResults } from '@unional/test-progress-tracker';
 
 export function transformTestResults(testResults: jest.AggregatedResult): TestResults | undefined {
   const {
@@ -25,6 +15,8 @@ export function transformTestResults(testResults: jest.AggregatedResult): TestRe
 
   if (wasInterrupted) return undefined
 
+  if (!numTotalTests) return undefined
+
   return {
     startTime,
     duration: new Date().getTime() - startTime,
@@ -40,5 +32,5 @@ export function transformTestResults(testResults: jest.AggregatedResult): TestRe
 
 function transformCoverage(coverageMap: jest.Maybe<jest.CoverageMap>) {
   if (!coverageMap) return undefined
-  return coverageMap.getCoverageSummary() as any as jest.CoverageSummary
+  return coverageMap.getCoverageSummary() as any as CoverageSummary
 }
