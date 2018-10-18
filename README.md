@@ -9,7 +9,7 @@
 [![Greenkeeper badge][green-keeper-image]][green-keeper-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
 
-Progress tracker.
+Test progress reporter.
 
 ## Usage
 
@@ -27,74 +27,17 @@ add it to the `reporters` section of the Jest configuration:
 }
 ```
 
-You can enable debug mode to see if your configuration has problem:
-
-```js
-{
-  "jest": {
-    "reporters": [
-      "default",
-      ["jest-progress-reporter", { debug: true }]
-    ]
-  }
-}
-```
-
-## Configuration
-
-To configure `jest-progress-reporter`, you need to create a `.jest-progress-reporterrc` file.
-For example:
-
-```js
-{
-  "onStart": "<path(s)-to-audio>",
-  "onStartThreshold": 3,
-  "onSuitePass": "<path(s)-to-audio>",
-  "onSuiteFailure": "<path(s)-to-audio>"
-}
-```
-
-Most likely you will put this file under the root of all your projects or in your home folder.
-Please refer to [`rc`](https://www.npmjs.com/package/rc) for more information.
-
-## Options
-
-- `onStart: string | string[]`: Specify the audio file(s) to play when the test suite starts. When specifying an array, one of the file will be picked at random.
-- `onStartThreshold: number`: `onStart` will not play audio if the tests are estimated to finish less when this threshold. Default is 3 seconds.
-- `onSuitePass: string | string[]`: Specify the audio file(s) to play when the test suite passes. When specifying an array, one of the file will be picked at random.
-- `onSuiteFailure: string | string[]`: Specify the audio file(s) to play when the test suite failes. When specifying an array, one of the file will be picked at random.
-
-## Watch mode
-
-When `jest` is running in watch mode, the following special behavior applies:
-
-- `onSuitePass` will play only on first run and when the test suite recoveres from failure.
-
-## For Windows
-
-`jest-progress-reporter` using [`play-sound`](https://www.npmjs.com/package/play-sound) internally.
-For Windows, you will need to install [`mplayer`](https://www.mplayerhq.hu/).
-
-## Audio Copyright Disclaimer
-
-In order to avoid potential copyright issue, no audio files are included in the package.
-
-The audio files used for testing in this repository comes from <https://dova-s.jp>
-
-Please refer to them for copyright information.
-
-[npm-image]: https://img.shields.io/npm/v/jest-progress-reporter.svg?style=flat
-[npm-url]: https://npmjs.org/package/jest-progress-reporter
-[downloads-image]: https://img.shields.io/npm/dm/jest-progress-reporter.svg?style=flat
-[downloads-url]: https://npmjs.org/package/jest-progress-reporter
+[npm-image]: https://img.shields.io/npm/v/@unional/jest-progress-reporter.svg?style=flat
+[npm-url]: https://npmjs.org/package/@unional/jest-progress-reporter
+[downloads-image]: https://img.shields.io/npm/dm/@unional/jest-progress-reporter.svg?style=flat
+[downloads-url]: https://npmjs.org/package/@unional/jest-progress-reporter
 [travis-image]: https://img.shields.io/travis/unional/jest-progress-reporter/master.svg?style=flat
 [travis-url]: https://travis-ci.org/unional/jest-progress-reporter?branch=master
 [codecov-image]: https://codecov.io/gh/unional/jest-progress-reporter/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/unional/jest-progress-reporter
 [coveralls-image]: https://coveralls.io/repos/github/unional/jest-progress-reporter/badge.svg
 [coveralls-url]: https://coveralls.io/github/unional/jest-progress-reporter
-[green-keeper-image]:
-https://badges.greenkeeper.io/unional/jest-progress-reporter.svg
+[green-keeper-image]:https://badges.greenkeeper.io/unional/jest-progress-reporter.svg
 [green-keeper-url]:https://greenkeeper.io/
 [semantic-release-image]:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release-url]:https://github.com/semantic-release/semantic-release
