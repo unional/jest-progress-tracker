@@ -9,7 +9,7 @@
 [![Greenkeeper badge][green-keeper-image]][green-keeper-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
 
-Test progress reporter.
+Test progress reporter for jest.
 
 ## Usage
 

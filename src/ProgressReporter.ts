@@ -16,6 +16,7 @@ export class ProgressReporter implements jest.Reporter {
       if (this.filtered) {
         entry.filtered = true
       }
+      // tslint:disable-next-line: no-floating-promises
       this.appendTestResult(undefined, entry)
     }
   }
