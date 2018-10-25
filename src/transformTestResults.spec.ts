@@ -1,6 +1,6 @@
 import a from 'assertron';
-import { transformTestResults } from './transformTestResults';
 import { isInRange } from 'satisfier';
+import { transformTestResults } from './transformTestResults';
 
 test('return undefined if test was interrupted', () => {
   expect(transformTestResults(createTestResults({ numFailedTests: 1, numTotalTests: 1, wasInterrupted: true }))).toBeUndefined()

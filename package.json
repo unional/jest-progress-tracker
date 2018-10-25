@@ -1,5 +1,5 @@
 {
-  "name": "@unional/jest-progress-reporter",
+  "name": "jest-progress-tracker",
   "description": "Keep track of test progress over time",
   "version": "0.0.0-development",
   "main": "dist/index.js",
@@ -21,12 +21,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unional/jest-progress-reporter.git"
+    "url": "https://github.com/unional/jest-progress-tracker.git"
   },
   "bugs": {
-    "url": "https://github.com/unional/jest-progress-reporter/issues"
+    "url": "https://github.com/unional/jest-progress-tracker/issues"
   },
-  "homepage": "https://github.com/unional/jest-progress-reporter",
+  "homepage": "https://github.com/unional/jest-progress-tracker",
   "keywords": [
     "jest",
     "reporters"
@@ -55,6 +55,6 @@
     "typescript": "^3.1.3"
   },
   "dependencies": {
-    "@unional/test-progress-tracker": "^2.0.0"
+    "test-progress-tracker": "^2.0.2"
   }
 }
