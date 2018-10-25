@@ -1,4 +1,4 @@
-import { CoverageSummary, TestResults } from '@unional/test-progress-tracker';
+import { CoverageSummary, TestResults } from 'test-progress-tracker';
 
 export function transformTestResults(testResults: jest.AggregatedResult): TestResults | undefined {
   const {

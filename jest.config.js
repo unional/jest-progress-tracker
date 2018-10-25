@@ -11,10 +11,7 @@ module.exports = {
   'testEnvironment': 'node',
   'watchPlugins': [
     [
-      'jest-watch-suspend',
-      {
-        'suspend-on-start': true
-      }
+      'jest-watch-suspend'
     ],
     [
       'jest-watch-toggle-config',

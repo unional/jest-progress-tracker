@@ -1,7 +1,8 @@
+import a from 'assertron';
+import { TestResults } from 'test-progress-tracker';
 import ProgressReporter from '.';
-import { TestResults } from '@unional/test-progress-tracker';
 import { noCoverage } from './testResultsExamples';
-import a from 'assertron'
+
 test('mark filtered if there is testNamePattern', () => {
   const subject = new ProgressReporter({ testNamePattern: 'a' } as jest.GlobalConfig)
   let actual: TestResults

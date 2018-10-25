@@ -1,4 +1,4 @@
-import { append, init } from '@unional/test-progress-tracker';
+import { append, init } from 'test-progress-tracker';
 import { transformTestResults } from './transformTestResults';
 
 init()
