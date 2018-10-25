@@ -1,8 +1,9 @@
-# jest-progress-tracker
+# jest progress tracker
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
-[![Build status][travis-image]][travis-url]
+[![Circle CI][circleci-image]][circleci-url]
+[![Travis CI][travis-image]][travis-url]
 [![Codecov][codecov-image]][codecov-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
@@ -27,6 +28,8 @@ add it to the `reporters` section of the Jest configuration:
 }
 ```
 
+[circleci-image]: https://circleci.com/gh/unional/jest-progress-tracker/tree/master.svg?style=shield
+[circleci-url]: https://circleci.com/gh/unional/jest-progress-tracker/tree/master
 [codecov-image]: https://codecov.io/gh/unional/jest-progress-tracker/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/unional/jest-progress-tracker
 [coveralls-image]: https://coveralls.io/repos/github/unional/jest-progress-tracker/badge.svg
