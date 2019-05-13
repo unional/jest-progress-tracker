@@ -9,7 +9,7 @@ test('return undefined if test was interrupted', () => {
 test('no coverage is ok', () => {
   const testResults = createTestResults({ numFailedTests: 1, numTotalTests: 1 })
 
-  a.satisfy(transformTestResults(testResults), testResults)
+  a.satisfies(transformTestResults(testResults), testResults)
 })
 
 test('skipped test run will be undefined', () => {
@@ -29,7 +29,7 @@ test('coverage', () => {
     } as any
   })
   const actual = transformTestResults(testResults)
-  a.satisfy(actual, {
+  a.satisfies(actual, {
     coverage: {
       branches: { covered: 0, skipped: 0, total: 0 },
       functions: { covered: 0, skipped: 0, total: 0 },
@@ -39,12 +39,12 @@ test('coverage', () => {
   })
 })
 test('record duration', () => {
-  a.satisfy(transformTestResults(createTestResults({ numTotalTests: 1, startTime: new Date().getTime() - 100 })), { duration: isInRange(100, 101) })
+  a.satisfies(transformTestResults(createTestResults({ numTotalTests: 1, startTime: new Date().getTime() - 100 })), { duration: isInRange(100, 101) })
 })
 
 test('has start time', () => {
   const startTime = new Date().getTime()
-  a.satisfy(transformTestResults(createTestResults({ numTotalTests: 1, startTime })), { startTime })
+  a.satisfies(transformTestResults(createTestResults({ numTotalTests: 1, startTime })), { startTime })
 })
 
 function createTestResults(partial: Partial<jest.AggregatedResult>) {

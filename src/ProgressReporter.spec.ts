@@ -2,6 +2,7 @@ import a from 'assertron';
 import { TestResults } from 'test-progress-tracker';
 import ProgressReporter from '.';
 import { noCoverage } from './testResultsExamples';
+import { anything } from 'satisfier';
 
 test('mark filtered if there is testNamePattern', () => {
   const subject = new ProgressReporter({ testNamePattern: 'a' } as jest.GlobalConfig)
@@ -12,7 +13,7 @@ test('mark filtered if there is testNamePattern', () => {
   }
   subject.onRunComplete(undefined, aggregateResult(noCoverage))
 
-  a.satisfy(actual!, { ...noCoverage, duration: undefined, filtered: true })
+  a.satisfies(actual!, { ...noCoverage, duration: anything, filtered: true })
 })
 
 test('mark filtered if there is testPathPattern', () => {
@@ -24,7 +25,7 @@ test('mark filtered if there is testPathPattern', () => {
   }
   subject.onRunComplete(undefined, aggregateResult(noCoverage))
 
-  a.satisfy(actual!, { ...noCoverage, duration: undefined, filtered: true })
+  a.satisfies(actual!, { ...noCoverage, duration: anything, filtered: true })
 })
 
 test('mark filtered if there is testNamePattern and testPathPattern', () => {
@@ -36,7 +37,7 @@ test('mark filtered if there is testNamePattern and testPathPattern', () => {
   }
   subject.onRunComplete(undefined, aggregateResult(noCoverage))
 
-  a.satisfy(actual!, { ...noCoverage, duration: undefined, filtered: true })
+  a.satisfies(actual!, { ...noCoverage, duration: anything, filtered: true })
 })
 
 test('not filtered if there is no testNamePattern or testPathPattern', () => {
@@ -48,7 +49,7 @@ test('not filtered if there is no testNamePattern or testPathPattern', () => {
   }
   subject.onRunComplete(undefined, aggregateResult(noCoverage))
 
-  a.satisfy(actual!, e => e.filtered === undefined)
+  a.satisfies(actual!, e => e.filtered === undefined)
 })
 
 test('no test will not append', () => {
