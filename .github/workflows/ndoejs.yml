@@ -75,6 +75,10 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
       - run: yarn
+      - name: download cjs folder
+        uses: actions/download-artifact@v1
+        with:
+          name: cjs
       - run: yarn coverage --maxWorkers=2
       - name: codecov
         if: matrix.node-version == 16 && matrix.os == 'ubuntu-latest'
