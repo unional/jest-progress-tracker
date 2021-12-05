@@ -1,4 +1,6 @@
+import type { AggregatedResult } from '@jest/test-result';
 import a from 'assertron';
+import { CoverageMap } from 'istanbul-lib-coverage';
 import { isInRange } from 'satisfier';
 import { transformTestResults } from './transformTestResults';
 
@@ -21,12 +23,12 @@ test('coverage', () => {
     numTotalTests: 1,
     coverageMap: {
       getCoverageSummary: () => ({
-        branches: { covered: 0, skipped: 0, total: 0 },
-        functions: { covered: 0, skipped: 0, total: 0 },
-        lines: { covered: 0, skipped: 0, total: 0 },
-        statements: { covered: 0, skipped: 0, total: 0 }
+        branches: { covered: 0, skipped: 0, total: 0, pct: 0 },
+        functions: { covered: 0, skipped: 0, total: 0, pct: 0 },
+        lines: { covered: 0, skipped: 0, total: 0, pct: 0 },
+        statements: { covered: 0, skipped: 0, total: 0, pct: 0 }
       })
-    } as any
+    } as CoverageMap
   })
   const actual = transformTestResults(testResults)
   a.satisfies(actual, {
@@ -47,6 +49,6 @@ test('has start time', () => {
   a.satisfies(transformTestResults(createTestResults({ numTotalTests: 1, startTime })), { startTime })
 })
 
-function createTestResults(partial: Partial<jest.AggregatedResult>) {
-  return partial as jest.AggregatedResult
+function createTestResults(partial: Partial<AggregatedResult>) {
+  return partial as AggregatedResult
 }
