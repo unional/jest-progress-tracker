@@ -1,3 +1,3 @@
 import { ProgressReporter } from './ProgressReporter';
 
-export = ProgressReporter
+export default ProgressReporter
