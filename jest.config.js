@@ -1,7 +1,7 @@
 module.exports = {
   'reporters': [
     'default',
-    '<rootDir>/dist/index.js'
+    '<rootDir>/cjs/index.js'
   ],
   'roots': [
     '<rootDir>/src'

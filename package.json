@@ -16,15 +16,15 @@
   },
   "license": "MIT",
   "files": [
-    "dist"
+    "cjs"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "cjs/index.js",
+  "typings": "cjs/index.d.ts",
   "scripts": {
     "build": "npm run clean && tsc -p tsconfig.base.json",
-    "clean": "rimraf dist",
+    "clean": "rimraf cjs",
     "coverage": "jest --coverage",
-    "dependency-check": "dependency-check . --unused --no-dev -i @jest/test-result -i jest-watcher -i istanbul-lib-coverage && dependency-check . --missing --no-dev",
+    "dependency-check": "dependency-check . --unused --no-dev -i jest -i @jest/test-result -i jest-watcher -i istanbul-lib-coverage && dependency-check . --missing --no-dev",
     "lint": "eslint --ext=ts,js .",
     "test": "npm run build && jest",
     "verify": "npm run lint && npm run build && npm run coverage && npm run dependency-check",
