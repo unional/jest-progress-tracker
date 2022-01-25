@@ -4018,10 +4018,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-test-progress-tracker@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/test-progress-tracker/-/test-progress-tracker-2.0.5.tgz#90f4d512ba8bf53358566b54bd2d4625d5c57d12"
-  integrity sha512-BgicGRoqT6FSUsokrHYvLPdhSpsRmAbJU1IGZhynDwjpGH15RezV1bEr+LFcFu7S3RqtS3blybKj/b+UpkggUA==
+test-progress-tracker@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/test-progress-tracker/-/test-progress-tracker-2.0.6.tgz#4fdb23cc581ab89a68dfa46cc00a579fb4f91d95"
+  integrity sha512-mcLE8bH7PYeReIfX5HoOQ6htn22n453EkEKkSUSJi84nwAvSiSFdp+SGvmv0x+86w/ed0Czr2ZYrba+rlRG3Gg==
   dependencies:
     chokidar "^3.5.2"
     global-store "^1.0.0-beta.19"
