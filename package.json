@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@jest/test-result": "^27.5.0",
-    "istanbul-lib-coverage": "^3.2.0",
+    "istanbul-lib-coverage": "^3.2.1",
     "jest-watcher": "^27.4.6",
     "test-progress-tracker": "^2.0.6"
   },
